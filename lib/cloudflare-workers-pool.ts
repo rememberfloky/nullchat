@@ -1,6 +1,5 @@
 export const CLOUDFLARE_WORKERS = [
-  'wss://ghostchat-signaling.teycir.workers.dev/peerjs/peerjs',
-  'wss://ghostchat-signaling.teycitek.workers.dev/peerjs/peerjs',
+  'wss://ghostchat-signaling.itsmeanonymouskiller.workers.dev/peerjs/peerjs',
 ].filter(Boolean);
 
 let currentWorkerIndex = 0;

@@ -1,4 +1,4 @@
-const SESSION_KEY = 'ghostchat_session';
+const SESSION_KEY = 'nullchat_session';
 
 interface Session {
   peerId: string;

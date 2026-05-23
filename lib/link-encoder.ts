@@ -17,5 +17,5 @@ export function decodeInviteLink(encoded: string): string | null {
 }
 
 export function formatEncodedForEmail(encoded: string): string {
-  return `GhostChat Invite Code:\n${encoded}\n\nPaste this code at: ${window.location.origin}/chat`;
+  return `NullChat Invite Code:\n${encoded}\n\nPaste this code at: ${window.location.origin}/chat`;
 }

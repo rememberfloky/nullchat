@@ -2,22 +2,22 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'GhostChat - Secure P2P Chat | WebRTC Messaging | No Server Storage',
-  description: 'Free open-source peer-to-peer chat app with WebRTC. Messages stored in memory only, self-destruct timers, no accounts required. Built with Next.js and TypeScript.',
+  title: 'NullChat - Secure P2P Chat | WebRTC Messaging | No Server Storage',
+  description: 'Free open-source peer-to-peer chat app with WebRTC. Messages stored in memory only, self-destruct timers, no accounts required. Built by Ares.',
   keywords: ['p2p chat', 'webrtc chat', 'peer to peer messaging', 'ephemeral chat', 'private messaging', 'secure chat', 'no server chat', 'memory only chat', 'self-destructing messages', 'anonymous chat', 'nextjs chat', 'typescript chat', 'open source chat'],
-  authors: [{ name: 'Teycir' }],
-  creator: 'Teycir',
-  publisher: 'GhostChat',
+  authors: [{ name: 'Ares' }],
+  creator: 'Ares',
+  publisher: 'NullChat',
   manifest: '/manifest.json',
-  metadataBase: new URL('https://ghost-chat.pages.dev'),
+  metadataBase: new URL('https://nullchat.pages.dev'),
   alternates: {
-    canonical: 'https://ghost-chat.pages.dev',
+    canonical: 'https://nullchat.pages.dev',
   },
   openGraph: {
-    title: 'GhostChat - Secure P2P WebRTC Chat',
+    title: 'NullChat - Secure P2P WebRTC Chat',
     description: 'Free peer-to-peer chat with WebRTC. No servers, no storage, no accounts. Messages vanish when you close the tab.',
-    url: 'https://ghost-chat.pages.dev',
-    siteName: 'GhostChat',
+    url: 'https://nullchat.pages.dev',
+    siteName: 'NullChat',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: '/assets/landingpage.png',
         width: 1200,
         height: 630,
-        alt: 'GhostChat - Secure P2P Chat',
+        alt: 'NullChat - Secure P2P Chat',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GhostChat - Secure P2P WebRTC Chat',
+    title: 'NullChat - Secure P2P WebRTC Chat',
     description: 'Free peer-to-peer chat with WebRTC. No servers, no storage, no accounts.',
     images: ['/assets/landingpage.png'],
   },
@@ -59,8 +59,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body suppressHydrationWarning>
-        <div className="ghost-wisp ghost-right">👻</div>
-        <div className="ghost-wisp ghost-left">👻</div>
+        <div className="ghost-wisp ghost-right">⬛</div>
+        <div className="ghost-wisp ghost-left">⬛</div>
         {children}
       </body>
     </html>

@@ -39,8 +39,8 @@ export default function Home() {
             maxWidth: 500,
             margin: "0 auto 32px",
             padding: 16,
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "2px solid rgba(255, 221, 0, 0.3)",
+            background: "rgba(255, 255, 255, 0.04)",
+            border: "2px solid rgba(200, 0, 0, 0.35)",
             borderRadius: 12,
           }}
         >
@@ -62,10 +62,10 @@ export default function Home() {
             style={{
               width: "100%",
               padding: 12,
-              background: "#0a0a0a",
-              border: decodeError ? "1px solid #f00" : "1px solid #333",
+              background: "#0a0000",
+              border: decodeError ? "1px solid #f00" : "1px solid #3a0000",
               borderRadius: 8,
-              color: "#fd0",
+              color: "#ff4444",
               fontSize: 11,
               fontFamily: "monospace",
               outline: "none",
@@ -81,17 +81,17 @@ export default function Home() {
               padding: 12,
               marginTop: 8,
               background: encodedInput.trim()
-                ? "linear-gradient(135deg, #0f0 0%, #0d0 100%)"
+                ? "linear-gradient(135deg, #cc0000 0%, #880000 100%)"
                 : "#333",
               border: "none",
               borderRadius: 8,
-              color: encodedInput.trim() ? "#000" : "#666",
+              color: encodedInput.trim() ? "#fff" : "#666",
               fontSize: 12,
               fontWeight: 600,
               cursor: encodedInput.trim() ? "pointer" : "not-allowed",
             }}
           >
-            Decode & Connect
+            Decode &amp; Connect
           </button>
           {decodeError && (
             <div style={{ marginTop: 8, fontSize: 10, color: "#f00" }}>
@@ -99,22 +99,43 @@ export default function Home() {
             </div>
           )}
         </div>
-        <img
-          src="/assets/ghostNobg.png"
-          alt="Ghost"
-          style={{ width: "100px", height: "100px", marginBottom: 16 }}
+
+        {/* NullChat logo mark — a glowing ∅ */}
+        <div
+          style={{
+            width: 100,
+            height: 100,
+            margin: "0 auto 16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 64,
+            lineHeight: 1,
+            color: "#cc0000",
+            textShadow: "0 0 24px rgba(200,0,0,0.8), 0 0 48px rgba(200,0,0,0.4)",
+            animation: "floatBtn 3s ease-in-out infinite",
+          }}
           className="ghost-icon"
-        />
+        >
+          ∅
+        </div>
+
         <h1
           style={{
             fontSize: "clamp(32px, 8vw, 48px)",
             marginBottom: 12,
             fontWeight: 700,
+            background: "linear-gradient(135deg, #ffffff 0%, #ff4444 60%, #cc0000 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
           }}
         >
-          GhostChat
+          NullChat
         </h1>
-        <AnimatedTagline text="Your messages vanish like ghosts" />
+
+        <AnimatedTagline text="Your messages dissolve into nothing" />
+
         <div
           style={{
             display: "flex",
@@ -128,10 +149,13 @@ export default function Home() {
             Generate Chat
           </button>
         </div>
+
         <CyclingFeatures />
+
+        {/* Action buttons row — GitHub only, no YouTube */}
         <div style={{ display: "flex", gap: 12, marginBottom: 40, flexWrap: "wrap", justifyContent: "center" }}>
           <a
-            href="https://www.youtube.com/watch?v=4-Iw9r4g8D0"
+            href="https://github.com/rememberfloky/NullChat#readme"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -139,54 +163,22 @@ export default function Home() {
               alignItems: "center",
               gap: 6,
               padding: "8px 16px",
-              background: "#fff",
-              color: "#ff0000",
-              textDecoration: "none",
-              borderRadius: 12,
-              fontSize: 11,
-              fontWeight: 600,
-              boxShadow: "0 4px 12px rgba(255, 0, 0, 0.2)",
-              transition: "transform 0.2s, box-shadow 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 6px 16px rgba(255, 0, 0, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(255, 0, 0, 0.2)";
-            }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            Watch Tutorial
-          </a>
-          <a
-            href="https://github.com/Teycir/GhostChat#readme"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              padding: "8px 16px",
-              background: "rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.08)",
               color: "#fff",
               textDecoration: "none",
               borderRadius: 12,
               fontSize: 11,
               fontWeight: 600,
-              border: "1px solid rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(200, 0, 0, 0.3)",
               transition: "transform 0.2s, background 0.2s",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
+              e.currentTarget.style.background = "rgba(200, 0, 0, 0.2)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
             }}
           >
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -195,6 +187,8 @@ export default function Home() {
             How to Use
           </a>
         </div>
+
+        {/* Social links — LinkedIn + Reddit (personal profile links) */}
         <div
           style={{
             marginTop: 0,
@@ -204,88 +198,30 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
+          {/* LinkedIn */}
           <a
-            href="https://twitter.com/intent/tweet?text=Check%20out%20GhostChat%20-%20a%20secure%20P2P%20chat%20app%20where%20messages%20vanish%20like%20ghosts!%20No%20servers%2C%20no%20storage%2C%20no%20accounts.&url=https://ghost-chat.pages.dev&hashtags=WebRTC,P2P,Privacy"
+            href="https://www.linkedin.com/in/kishann23/"
             target="_blank"
             rel="noopener noreferrer"
+            title="Ares on LinkedIn"
             style={{
               width: 36,
               height: 36,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.08)",
               borderRadius: 10,
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#1DA1F2";
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(29, 161, 242, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.reddit.com/submit?url=https://ghost-chat.pages.dev&title=GhostChat%20-%20Secure%20P2P%20Chat%20with%20WebRTC"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              width: 36,
-              height: 36,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.1)",
-              borderRadius: 10,
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#FF4500";
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(255, 69, 0, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
-              <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/sharing/share-offsite/?url=https://ghost-chat.pages.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              width: 36,
-              height: 36,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.1)",
-              borderRadius: 10,
-              border: "1px solid rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(200, 0, 0, 0.25)",
               transition: "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#0077B5";
               e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 119, 181, 0.3)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 119, 181, 0.4)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
               e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "none";
             }}
@@ -294,6 +230,79 @@ export default function Home() {
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
           </a>
+
+          {/* Reddit */}
+          <a
+            href="https://www.reddit.com/user/imurares/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ares on Reddit"
+            style={{
+              width: 36,
+              height: 36,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "rgba(255, 255, 255, 0.08)",
+              borderRadius: 10,
+              border: "1px solid rgba(200, 0, 0, 0.25)",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#FF4500";
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(255, 69, 0, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+            </svg>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/rememberfloky"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="NullChat on GitHub"
+            style={{
+              width: 36,
+              height: 36,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "rgba(255, 255, 255, 0.08)",
+              borderRadius: 10,
+              border: "1px solid rgba(200, 0, 0, 0.25)",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#333";
+              e.currentTarget.style.transform = "translateY(-4px)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(255,255,255,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#fff">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+          </a>
+        </div>
+
+        {/* Footer credit */}
+        <div style={{ marginTop: 32, fontSize: 10, color: "rgba(255,255,255,0.3)" }}>
+          Built by <a href="https://www.linkedin.com/in/kishann23/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(200,0,0,0.6)", textDecoration: "none" }}>Ares</a>
+          {" · "}
+          <a href="https://www.reddit.com/user/imurares/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(200,0,0,0.6)", textDecoration: "none" }}>Reddit</a>
         </div>
       </div>
     </div>

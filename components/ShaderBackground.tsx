@@ -41,11 +41,12 @@ export default function ShaderBackground() {
         float d2 = length(p - vec2(cos(t * 0.8) * 0.6, sin(t * 0.6) * 0.6));
         float d3 = length(p - vec2(sin(t * 0.5) * 0.6, cos(t * 0.9) * 0.6));
         
-        color += vec3(1.0, 0.85, 0.0) * (0.03 / d1);
-        color += vec3(1.0, 0.65, 0.0) * (0.025 / d2);
-        color += vec3(1.0, 0.75, 0.0) * (0.02 / d3);
+        // Red glow orbs
+        color += vec3(1.0, 0.0, 0.0) * (0.03 / d1);
+        color += vec3(0.8, 0.05, 0.05) * (0.025 / d2);
+        color += vec3(0.9, 0.02, 0.02) * (0.02 / d3);
         
-        color *= 0.2;
+        color *= 0.25;
         
         gl_FragColor = vec4(color, 1.0);
       }

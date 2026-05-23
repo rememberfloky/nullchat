@@ -1,11 +1,11 @@
 {
-  "name": "GhostChat",
-  "short_name": "GhostChat",
-  "description": "Ephemeral P2P chat - messages vanish like ghosts",
+  "name": "NullChat",
+  "short_name": "NullChat",
+  "description": "Ephemeral P2P chat — messages dissolve into nothing",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000",
+  "theme_color": "#cc0000",
   "orientation": "portrait",
   "scope": "/",
   "icons": [

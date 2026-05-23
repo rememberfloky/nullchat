@@ -6,7 +6,7 @@ export interface ServerConfig {
 }
 
 const PRIMARY_SERVER: ServerConfig = {
-  host: 'ghostchat-signaling.teycir.workers.dev',
+  host: 'ghostchat-signaling.itsmeanonymouskiller.workers.dev',
   port: 443,
   path: '/peerjs',
   secure: true

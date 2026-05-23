@@ -4,7 +4,7 @@ export function generateQRCode(text: string): string {
   return qrApiUrl;
 }
 
-export function downloadQRCode(url: string, filename: string = 'ghostchat-invite.png') {
+export function downloadQRCode(url: string, filename: string = 'nullchat-invite.png') {
   const link = document.createElement('a');
   link.href = url;
   link.download = filename;

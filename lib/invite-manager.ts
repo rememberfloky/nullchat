@@ -6,7 +6,7 @@ interface InviteData {
   isActive: boolean;
 }
 
-const DB_NAME = 'ghostchat-invites';
+const DB_NAME = 'nullchat-invites';
 const STORE_NAME = 'invites';
 const EXPIRY_HOURS = 24;
 

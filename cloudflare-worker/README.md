@@ -1,50 +1,57 @@
-# GhostChat Signaling Server (Cloudflare Workers)
+# NullChat Signaling Server (Cloudflare Workers)
 
 Free PeerJS signaling server using Cloudflare Workers + Durable Objects.
+Handles WebRTC handshakes — never sees message content.
 
-## Deploy
+## Step 1 — Login to Cloudflare
 
 ```bash
 cd cloudflare-worker
+npm install
 npx wrangler login
+```
+
+This opens your browser to authenticate. You need a free Cloudflare account.
+
+## Step 2 — Deploy
+
+```bash
 npx wrangler deploy
 ```
 
-Your server will be live at: `https://ghostchat-signaling.YOUR-SUBDOMAIN.workers.dev`
-
-## Test
-
-Open `test-worker-peerjs.html` in browser:
-1. Update host to your worker URL
-2. Check HTTPS/WSS checkbox
-3. Click "Test Connection"
-4. All 3 tests should pass
-
-## Configure GhostChat
-
-Update `lib/peer-manager.ts`:
-
-```typescript
-function getPeerConfig() {
-  return {
-    host: 'ghostchat-signaling.YOUR-SUBDOMAIN.workers.dev',
-    port: 443,
-    path: '/peerjs',
-    secure: true
-  };
-}
+Output will show your live URL:
+```
+✅ Deployed: https://nullchat-signaling.YOUR-SUBDOMAIN.workers.dev
 ```
 
-## Architecture
+## Step 3 — Update NullChat to use your worker
 
-- HTTP endpoint: Returns peer IDs
-- WebSocket: Handles signaling (OFFER/ANSWER/CANDIDATE)
-- Durable Objects: Manages peer sessions
-- CORS: Enabled for all origins
+Edit `lib/cloudflare-workers-pool.ts`:
+```
+wss://nullchat-signaling.YOUR-SUBDOMAIN.workers.dev/peerjs/peerjs
+```
 
-## Free Tier
+Edit `lib/server-config.ts`:
+```
+host: 'nullchat-signaling.YOUR-SUBDOMAIN.workers.dev'
+```
+
+Then rebuild: `npm run build`
+
+## Free Tier Limits
 
 - 100,000 requests/day
-- Durable Objects: 1M reads/day, 1M writes/day
-- Global edge network
-- No cold starts
+- Durable Objects: 1M reads + 1M writes/day
+- Global edge network, zero cold starts
+- No credit card needed
+
+## How It Works
+
+```
+User A ──── WebSocket ────► Cloudflare Worker ◄──── WebSocket ──── User B
+               (SDP offer/answer exchange only — no messages)
+                    │
+                    ▼
+         Direct P2P connection established
+         (Worker no longer involved)
+```
